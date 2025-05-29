@@ -1,0 +1,21 @@
+{
+  "name": "healthie-dev-assist",
+  "version": "1.0.0",
+  "description": "Development assistant for Healthie GraphQL API",
+  "scripts": {
+    "start": "node setup.js",
+    "regenerate-schema": "node regenerate-schema.js",
+    "postinstall": "echo '✓ Dependencies installed. Run npm run setup to start the MCP server.'"
+  },
+  "dependencies": {
+    "graphql": "^16.8.1"
+  },
+  "keywords": [
+    "healthie",
+    "graphql",
+    "mcp",
+    "apollo"
+  ],
+  "author": "",
+  "license": "MIT"
+}
