@@ -44,21 +44,9 @@ This project provides a bridge between Healthie's comprehensive healthcare API a
 npm install
 ```
 
-3. (Optional) Create a `.env` file for API authentication:
-```bash
-echo "HEALTHIE_API_KEY=your-api-key-here" > .env
-```
+2. Follow the steps below for your AI tool of choice
 
 ## Configuration
-
-### Environment Variables
-
-Create a `.env` file in the project root with the following optional configuration:
-
-```env
-# Healthie API Key for authenticated access (optional)
-HEALTHIE_API_KEY=your-api-key-here
-```
 
 ### First Run
 
