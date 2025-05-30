@@ -46,21 +46,6 @@ npm install
 
 2. Follow the steps below for your AI tool of choice
 
-## Configuration
-
-### First Run
-
-When you run the project for the first time, it will:
-1. Check for the GraphQL schema file
-2. If not found, automatically download it from Healthie's API
-3. Start the MCP server
-
-To manually regenerate the schema:
-```bash
-npm run regenerate-schema
-```
-
-## Setup with AI Tools
 
 ### Claude Desktop App
 
@@ -153,6 +138,19 @@ mcp-bridge-openai \
 5. Restart Cursor
 6. The Healthie context will be available in your AI conversations
 
+## Configuration
+
+### First Run
+
+When you run the project for the first time, it will:
+1. Check for the GraphQL schema file
+2. If not found, automatically download it from Healthie's API
+3. Start the MCP server
+
+To manually regenerate the schema:
+```bash
+npm run regenerate-schema
+```
 ## Usage
 
 Once configured, you can ask your AI assistant to:
