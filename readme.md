@@ -171,7 +171,7 @@ Once configured, you can ask your AI assistant to:
    - Ensure you have internet connectivity
 
 2. **Authentication errors**
-   - Verify your API key is correct in the `.env` file
+   - Verify your API key is correct in your MCP config for your AI tool
    - Check that the key has appropriate permissions
 
 3. **MCP server not showing in AI tool**
