@@ -5,6 +5,9 @@ const path = require('path');
 const { spawn } = require('child_process');
 const config = require('./config');
 
+// Load environment variables from .env file
+require('dotenv').config();
+
 const { SCHEMA_URL, SCHEMA_DIR, SCHEMA_FILE, MCP_SERVER_PATH } = config;
 
 // Convert relative paths to absolute paths
@@ -43,9 +46,19 @@ function startMCPServer() {
         process.exit(1);
     }
 
+    // Build command arguments
+    const args = ['--introspection', '--schema', absoluteSchemaFile, '--endpoint', SCHEMA_URL];
+    
+    // Add API key header if present in environment
+    // Setting this up differs based on AI tool/LLM, see README for more info
+    if (process.env.HEALTHIE_API_KEY) {
+        args.push('--header', `authorization: Basic ${process.env.HEALTHIE_API_KEY}`);
+        args.push('--header', `AuthorizationSource: API`);
+    }
+
     // Start the MCP server with the SDL schema file
     // Suppress initial schema logging by filtering stderr
-    const server = spawn(absoluteMcpServerPath, ['--introspection', '--schema', absoluteSchemaFile, '--endpoint', SCHEMA_URL], { 
+    const server = spawn(absoluteMcpServerPath, args, { 
         stdio: ['inherit', 'inherit', 'pipe'],
         cwd: __dirname
     });
