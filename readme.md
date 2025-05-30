@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="images/healthie-logo.png" alt="Healthie Logo" width="300">
+</p>
+
 # Healthie Dev Assist
 
 A development assistant that empowers developers building quickly using the Healthie API, via  seamlessly integrating Healthie's GraphQL API with AI tools through the Model Context Protocol (MCP).
@@ -28,6 +32,10 @@ This project provides a bridge between Healthie's comprehensive healthcare API a
 - Node.js (v14 or higher)
 - npm (comes with Node.js)
 - A Healthie API key (optional, for authenticated access)
+
+## ⚠️ Important Warning
+
+**This tool is intended for use with Healthie's sandbox environment only.** While it can be modified to interface directly with production environments, we strongly advise against this unless you are certain your AI tools are authorized to process Protected Health Information (PHI). Most popular AI tools do not come with Business Associate Agreements (BAAs) by default, which are required for handling PHI in production healthcare environments.
 
 ## Installation
 
