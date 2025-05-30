@@ -24,6 +24,7 @@ This project provides a bridge between Healthie's comprehensive healthcare API a
 
 - "Write a ruby script to listen to the a Healthie webhook, and when a message is sent by me in Healthie, send a text to the patient via Twilio"
 - "Create a GraphQL query to fetch patient information"
+- "Please proof-read my package descriptions"
 - "Where is a patient's DOB stored?"
 - "Help me create a mutation to update patient data"
 
