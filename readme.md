@@ -4,7 +4,7 @@
 
 # Healthie Dev Assist
 
-A development assistant that empowers developers building quickly using the Healthie API, via  seamlessly integrating Healthie's GraphQL API with AI tools through the Model Context Protocol (MCP).
+A development assistant that empowers developers using the Healthie API, via seamlessly integrating Healthie's GraphQL API with AI tools through the Model Context Protocol (MCP).
 
 ## About
 
