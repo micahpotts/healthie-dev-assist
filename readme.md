@@ -95,6 +95,30 @@ npm install
 5. Reload VS Code window
 6. The Healthie MCP server will be available in Claude Code
 
+### Claude Code (CLI)
+
+1. Install Claude Code CLI if you haven't already:
+```bash
+npm install -g @anthropic-ai/claude-code
+```
+
+2. Add the MCP server using the `claude mcp add` command:
+```bash
+claude mcp add healthie-dev-assist "node /path/to/healthie-dev-assist/setup.js"
+```
+
+3. If you need to set the API key, you can add it with environment variables:
+```bash
+claude mcp add healthie-dev-assist "node /path/to/healthie-dev-assist/setup.js" --env HEALTHIE_API_KEY=your-api-key-here
+```
+
+4. Verify the MCP server is installed:
+```bash
+claude mcp list
+```
+
+5. The Healthie MCP server will now be available when using Claude Code CLI
+
 ### OpenAI (via MCP Bridge)
 
 Since OpenAI doesn't natively support MCP, you'll need to use an MCP bridge:
