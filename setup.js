@@ -13,7 +13,6 @@ const { SCHEMA_URL, SCHEMA_DIR, SCHEMA_FILE, MCP_SERVER_PATH } = config;
 // Convert relative paths to absolute paths
 const absoluteSchemaDir = path.resolve(__dirname, SCHEMA_DIR);
 const absoluteSchemaFile = path.resolve(__dirname, SCHEMA_FILE);
-const absoluteMcpServerPath = path.resolve(__dirname, MCP_SERVER_PATH);
 
 // Create schema directory if it doesn't exist
 if (!fs.existsSync(absoluteSchemaDir)) {
@@ -33,59 +32,23 @@ if (!fs.existsSync(absoluteSchemaFile)) {
         if (code !== 0) {
             process.exit(1);
         }
-        startMCPServer();
+        startMCPWithSearch();
     });
 } else {
-    startMCPServer();
+    startMCPWithSearch();
 }
 
-function startMCPServer() {
-    // Check if MCP server exists
-    if (!fs.existsSync(absoluteMcpServerPath)) {
-        console.error(`MCP server not found at: ${absoluteMcpServerPath}`);
-        process.exit(1);
-    }
-
-    // Build command arguments
-    const args = ['--introspection', '--schema', absoluteSchemaFile, '--endpoint', SCHEMA_URL];
+function startMCPWithSearch() {
+    // Start the MCP wrapper with search functionality
+    const wrapperPath = path.resolve(__dirname, 'mcp-with-search.js');
     
-    // Add API key header if present in environment
-    // Setting this up differs based on AI tool/LLM, see README for more info
-    if (process.env.HEALTHIE_API_KEY) {
-        args.push('--header', `authorization: Basic ${process.env.HEALTHIE_API_KEY}`);
-        args.push('--header', `AuthorizationSource: API`);
-    }
-
-    // Start the MCP server with the SDL schema file
-    // Suppress initial schema logging by filtering stderr
-    const server = spawn(absoluteMcpServerPath, args, { 
-        stdio: ['inherit', 'inherit', 'pipe'],
+    const server = spawn('node', [wrapperPath], { 
+        stdio: 'inherit',
         cwd: __dirname
     });
 
-    let suppressLogs = true;
-    
-    // Stop suppressing logs after 2 seconds
-    setTimeout(() => {
-        suppressLogs = false;
-    }, 2000);
-
-    server.stderr.on('data', (data) => {
-        const output = data.toString();
-        
-        // Filter out schema logging and initial startup messages
-        if (suppressLogs && (
-            output.includes('Received schema:') ||
-            output.includes('Received 0 operations:') ||
-            output.includes('Apollo MCP Server v')
-        )) {
-            return;
-        }
-        
-        process.stderr.write(data);
-    });
-
     server.on('error', (err) => {
+        console.error('Failed to start MCP server with search:', err);
         process.exit(1);
     });
 
