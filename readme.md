@@ -4,7 +4,7 @@
 
 # Healthie Dev Assist
 
-A development assistant that empowers developers using the Healthie API, via seamlessly integrating Healthie's GraphQL API with AI tools through the Model Context Protocol (MCP).
+A development assistant that empowers users of the Healthie API, by seamlessly integrating Healthie's GraphQL API with AI tools through the Model Context Protocol (MCP).
 
 ## About
 
@@ -24,6 +24,7 @@ This project provides a bridge between Healthie's comprehensive healthcare API a
 
 - "Write a ruby script to listen to the a Healthie webhook, and when a message is sent by me in Healthie, send a text to the patient via Twilio"
 - "Create a GraphQL query to fetch patient information"
+- "Please proof-read my package descriptions"
 - "Where is a patient's DOB stored?"
 - "Help me create a mutation to update patient data"
 
@@ -44,35 +45,8 @@ This project provides a bridge between Healthie's comprehensive healthcare API a
 npm install
 ```
 
-3. (Optional) Create a `.env` file for API authentication:
-```bash
-echo "HEALTHIE_API_KEY=your-api-key-here" > .env
-```
+2. Follow the steps below for your AI tool of choice
 
-## Configuration
-
-### Environment Variables
-
-Create a `.env` file in the project root with the following optional configuration:
-
-```env
-# Healthie API Key for authenticated access (optional)
-HEALTHIE_API_KEY=your-api-key-here
-```
-
-### First Run
-
-When you run the project for the first time, it will:
-1. Check for the GraphQL schema file
-2. If not found, automatically download it from Healthie's API
-3. Start the MCP server
-
-To manually regenerate the schema:
-```bash
-npm run regenerate-schema
-```
-
-## Setup with AI Tools
 
 ### Claude Desktop App
 
@@ -165,6 +139,19 @@ mcp-bridge-openai \
 5. Restart Cursor
 6. The Healthie context will be available in your AI conversations
 
+## Configuration
+
+### First Run
+
+When you run the project for the first time, it will:
+1. Check for the GraphQL schema file
+2. If not found, automatically download it from Healthie's API
+3. Start the MCP server
+
+To manually regenerate the schema:
+```bash
+npm run regenerate-schema
+```
 ## Usage
 
 Once configured, you can ask your AI assistant to:
@@ -184,7 +171,7 @@ Once configured, you can ask your AI assistant to:
    - Ensure you have internet connectivity
 
 2. **Authentication errors**
-   - Verify your API key is correct in the `.env` file
+   - Verify your API key is correct in your MCP config for your AI tool
    - Check that the key has appropriate permissions
 
 3. **MCP server not showing in AI tool**
