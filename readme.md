@@ -229,7 +229,7 @@ This will fetch the latest schema from the staging API and save it locally.
 
 ## License
 
-The apollo-mcp-server included here is distributed under the [Elasic License 2.0](https://github.com/apollographql/apollo-mcp-server/blob/main/LICENSE)
+The apollo-mcp-server binary included here comes from https://github.com/apollographql/apollo-mcp-server (current included version is v0.3.0) and is distributed under the [Elasic License 2.0](https://github.com/apollographql/apollo-mcp-server/blob/main/LICENSE)
 
 
 ## Support
